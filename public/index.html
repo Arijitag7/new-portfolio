@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arijit Dey | Software Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      background: #0f0f0f;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 60px 20px;
+    }
+
+    .intro-wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 20px;
+      animation: fadeSlideIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(min-width: 768px) {
+      .intro-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: auto;
+      }
+    }
+
+    .intro-image {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #555;
+      filter: drop-shadow(0 0 10px #0ff7);
+      transition: 0.6s ease;
+      cursor: pointer;
+    }
+
+    .intro-image:hover {
+      transform: scale(1.1) rotate(3deg);
+      filter: drop-shadow(0 0 15px #00ffffcc);
+    }
+
+    .intro-text {
+      text-align: center;
+      max-width: 600px;
+      white-space: nowrap;
+    }
+
+    @media(min-width: 768px) {
+      .intro-text {
+        text-align: left;
+        white-space: normal;
+      }
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 5px #0ff, 0 0 15px #0ff9;
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #bbb;
+      text-shadow: 0 0 8px #0ff4;
+    }
+
+    header code {
+      display: inline-block;
+      background: linear-gradient(135deg, #001f3f, #0077ff);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #0ff;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #0ff;
+      padding-bottom: 12px;
+      font-weight: 700;
+      text-shadow: 0 0 12px #0ff;
+    }
+
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media(min-width: 768px) {
+      .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: flex-start;
+      }
+    }
+
+    .about-section img {
+      width: 400px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffffcc;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      cursor: pointer;
+    }
+
+    .about-section img:hover {
+      transform: scale(1.05);
+      filter: grayscale(100%) brightness(1.1);
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.75;
+      max-width: 700px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .skill-item {
+      background: linear-gradient(145deg, #222, #1a1a1a);
+      padding: 12px 24px;
+      border-radius: 15px;
+      font-weight: 600;
+      color: #0ff;
+      box-shadow: 0 0 8px #00ffff88;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 0 18px #00ffffdd;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      background: #1c1c1c;
+      box-shadow: 0 6px 18px rgba(0, 255, 255, 0.3);
+      height: 260px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.9);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-card:hover .project-content {
+      opacity: 1;
+    }
+
+    .project-content h3 {
+      color: #0ff;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      text-align: center;
+      text-shadow: 0 0 6px #0ff;
+    }
+
+    .project-content p {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #ccc;
+      max-height: 80px;
+      margin-bottom: 10px;
+      padding-right: 8px;
+    }
+
+    .project-content p::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .project-content p::-webkit-scrollbar-thumb {
+      background-color: #0ff6;
+      border-radius: 10px;
+    }
+
+    .project-content a {
+      color: #0ff;
+      font-size: 1.4rem;
+    }
+
+    .project-content a:hover {
+      color: #00ffffaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: #555;
+      border-top: 1px solid #222;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    /* Contact Section */
+#contact {
+  padding: 100px 20px;
+  background: linear-gradient(145deg, #010101, #080c0c);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contact-title {
+  font-size: 3.2rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 30px #00fff7;
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+  }
+  100% {
+    text-shadow: 0 0 40px #00fff7, 0 0 60px #00fff7;
+  }
+}
+
+.contact-wrapper {
+  max-width: 750px;
+  margin: auto;
+  background: rgba(0, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00fff566;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 20px 18px;
+  background: transparent;
+  border: 2px solid #0ff5;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: #0ff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group label {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  background: #080c0c;
+  color: #aaa;
+  padding: 0 8px;
+  transition: 0.3s;
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -12px;
+  left: 14px;
+  font-size: 0.9rem;
+  color: #0ff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 12px #00ffffaa;
+}
+
+.send-btn {
+  padding: 16px 40px;
+  font-size: 1.3rem;
+  background: linear-gradient(to right, #00ffff, #00cfff);
+  border: none;
+  border-radius: 14px;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 18px #00ffffaa;
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 28px #00ffffcc;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .contact-title {
+    font-size: 2.4rem;
+  }
+
+  .contact-wrapper {
+    padding: 25px;
+  }
+
+  .send-btn {
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="intro-wrapper">
+      <div class="intro-text">
+        <h1>Hey,Arijit Dey this side👋</h1>
+        <p><i class="fas fa-code"></i> Software Developer</p>
+        <code>Turning ideas into code, one line at a time.</code>
+      </div>
+      <img src="front.png" alt="Arijit Dey" class="intro-image" />
+    </div>
+  </header>
+
+  <section class="about-section">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <div class="about-container">
+      <img src="second.jpg" alt="Arijit Dey" />
+      <p>
+        I'm a motivated Cloud Computing enthusiast and completed my degree in Computer Science engineering with specialization in cloud technologies. I have a strong foundation in programming languages like Java and Python, complemented knowledge in building scalable, cloud-native solutions using Microsoft Azure & AWS.<br /><br />
+        I’m also passionate about Artificial Intelligence and Machine Learning, applying these technologies to real-world problems like image stitching, sentiment analysis, and intelligent data processing. <br /><br />
+        Beyond cloud and AI, I’ve worked on diverse projects ranging from an electricity billing system to web platforms for project idea sharing, often incorporating REST APIs, Power BI, and Azure Cognitive Services. I thrive on continuous learning and am driven to contribute innovative and efficient solutions that support business growth and digital transformation.<br /><br />
+        <strong>Name:</strong> Arijit Dey<br />
+        <strong>Email:</strong> deyarijitag7@gmail.com<br />
+        <strong>Location:</strong> Kolkata, India<br />
+        <strong>Availability:</strong> Open to opportunities
+      </p>
+    </div>
+  </section>
+  <section>
+    <h2><i class="fas fa-tools"></i> Skills</h2>
+    <div class="skill-list">
+      <div class="skill-item"><i class="fab fa-java"></i> Core Java</div>
+      <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+      <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+      <div class="skill-item"><i class="fas fa-file-excel"></i> MS Excel</div>
+      <div class="skill-item"><i class="fab fa-microsoft"></i> Microsoft Azure</div>
+      <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+      <div class="skill-item"><i class="fas fa-cogs"></i> DSA</div>
+      <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+      <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+      <div class="skill-item"><i class="fa-solid fa-paintbrush"></i> Canva</div>
+      <div class="skill-item"><i class="fa-solid fa-note-sticky"></i> Agile Development</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-laptop-code"></i> Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="Seam_Carving.jpg" alt="Image Stitching">
+        <div class="project-content">
+          <h3>Image Stitching using Seam Carving</h3>
+          <p>Combining seam carving with image stitching techniques to build accurate panoramic views with minimal distortion.</p>
+          <a href="https://github.com/Arijitag7/Image-Stitching-using-Seam-Carving-.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="creativo.jpg" alt="Criativo">
+        <div class="project-content">
+          <h3>Criativo - Project Ideas Website</h3>
+          <p>Developed a web platform for students to discover and contribute academic project ideas. Built with modern web technologies.</p>
+          <a href="https://github.com/Arijitag7/Criativo---A-Website-for-Project-Ideas.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="Sentimental.jpg" alt="Sentimental Analysis">
+        <div class="project-content">
+          <h3>Customer Review Sentimental Analysis</h3>
+          <p>Used Azure Cognitive Services to extract sentiment insights from customer reviews to aid businesses in strategic decisions.</p>
+          <a href="https://github.com/Arijitag7/Customer-Review-Sentimental-Analysis-using-Azure-Cognitive-Services.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="Electricity.jpg" alt="Billing System">
+        <div class="project-content">
+          <h3>Electricity Billing System</h3>
+          <p>A Java application to automate electricity bill generation and manage user records efficiently through a simple interface.</p>
+          <a href="https://github.com/Arijitag7/Electricity-Billing-System.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="Portfolio.jpg" alt="Portfolio">
+        <div class="project-content">
+          <h3>Personal Portfolio Website</h3>
+          <p>A responsive portfolio website built using HTML and CSS. It showcases all my skills, projects, and contact information. Provides a comprehensive overview of professional work and expertise.</p>
+          <a href="https://github.com/Arijitag7/Arijit-portfolio.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+<body>
+  <header>
+    <section id="contact">
+  <h2 class="contact-title">📬 Contact Me</h2>
+  <div class="contact-wrapper">
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" required placeholder=" " />
+        <label>Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" required placeholder=" " />
+        <label>Email</label>
+      </div>
+      <div class="form-group">
+        <input type="phone" name="phone" required placeholder=" " />
+        <label>Phone</label>
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="6" required placeholder=" "></textarea>
+        <label>Your Message</label>
+      </div>
+      <button type="submit" class="send-btn">
+        🚀 Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+  
+</head>
+</header>
+<footer>
+    <p>&copy; 2025 Arijit Dey. All Rights Reserved.</p>
+  </footer>
+</body>
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.elements['name'].value;
+    const email = form.elements['email'].value;
+    const message = form.elements['message'].value;
+
+    try {
+      const res = await fetch('http://localhost:5000/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.msg);
+        form.reset();
+      } else {
+        alert('Error: ' + data.msg);
+      }
+    } catch (err) {
+      alert('Error sending message');
+      console.error(err);
+    }
+  });
+</script>
+
+</html>
