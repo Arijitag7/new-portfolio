@@ -15,27 +15,32 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serve static fronten
 
 // POST endpoint to receive contact form data
 app.post('/contact', async (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email, phone, message } = req.body;
 
-  if (!name || !email || !message) {
+  if (!name || !email || !phone || !message) {
     return res.status(400).json({ msg: 'Please fill all the fields' });
   }
 
-  // Configure transporter with Gmail
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Gmail address
-      pass: process.env.EMAIL_PASS, // App password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
-  // Email options
   let mailOptions = {
-    from: email,
+    from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: `New message from ${name} via Portfolio Contact Form`,
-    text: message,
+    text: `
+      You have received a new message from your portfolio contact form:
+
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone}
+      Message: ${message}
+    `,
   };
 
   try {
@@ -46,6 +51,7 @@ app.post('/contact', async (req, res) => {
     res.status(500).json({ msg: 'Failed to send message' });
   }
 });
+
 
 // Serve index.html on root route
 app.get('/', (req, res) => {
