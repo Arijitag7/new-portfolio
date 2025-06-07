@@ -201,23 +201,337 @@
       transition: border-color 0.3s ease;
     }
 
+    /* Aggressive Mobile text spacing optimization */
+    @media (max-width: 768px) {
+      /* Hero section - much tighter */
+      .hero-gradient h1 {
+        line-height: 1.1 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 2rem !important;
+      }
+
+      .hero-gradient p {
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+        font-size: 1rem !important;
+      }
+
+      .hero-gradient .glass-effect {
+        margin-bottom: 1rem !important;
+        padding: 0.75rem 1rem !important;
+      }
+
+      /* Text sizes - much smaller */
+      .text-lg {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+      }
+
+      .text-xl {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .text-2xl {
+        font-size: 1.125rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .text-3xl {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .text-4xl {
+        font-size: 1.75rem !important;
+        line-height: 1.1 !important;
+      }
+
+      /* Margins - much tighter */
+      .mb-4 {
+        margin-bottom: 0.5rem !important;
+      }
+
+      .mb-6 {
+        margin-bottom: 0.75rem !important;
+      }
+
+      .mb-8 {
+        margin-bottom: 1rem !important;
+      }
+
+      .mb-12 {
+        margin-bottom: 1.5rem !important;
+      }
+
+      .mb-16 {
+        margin-bottom: 2rem !important;
+      }
+
+      /* Section padding - much smaller */
+      .py-20 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      /* Space between elements */
+      .space-y-6 > * + * {
+        margin-top: 0.75rem !important;
+      }
+
+      .space-y-8 > * + * {
+        margin-top: 1rem !important;
+      }
+
+      /* Glass effects - smaller padding */
+      .glass-effect {
+        padding: 1rem !important;
+      }
+
+      /* Cards - tighter spacing */
+      .floating-card {
+        margin-bottom: 0.75rem !important;
+        padding: 1rem !important;
+      }
+
+      /* Project descriptions */
+      .project-overlay p {
+        line-height: 1.3 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 0.875rem !important;
+      }
+
+      /* About section specific */
+      .text-justify {
+        line-height: 1.4 !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      /* Skills grid - tighter */
+      .skill-gradient {
+        padding: 1rem !important;
+      }
+
+      .skill-gradient h3 {
+        font-size: 0.875rem !important;
+        margin-top: 0.5rem !important;
+      }
+
+      /* Contact form - tighter */
+      .contact-form .space-y-6 > * + * {
+        margin-top: 0.75rem !important;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+      }
+
+      /* Navigation - smaller */
+      nav .py-4 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+      }
+
+      /* Footer - tighter */
+      footer .py-12 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      /* Remove extra spacing from containers */
+      .max-w-7xl,
+      .max-w-4xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      /* Hero section specific mobile optimizations */
+      .min-h-screen {
+        min-height: 80vh !important;
+      }
+
+      /* Button spacing */
+      .flex.gap-4 {
+        gap: 0.5rem !important;
+      }
+
+      /* Profile image smaller on mobile */
+      .w-48.h-48 {
+        width: 8rem !important;
+        height: 8rem !important;
+      }
+
+      /* Reduce icon margins */
+      .mr-3 {
+        margin-right: 0.5rem !important;
+      }
+
+      /* Tighter grid spacing */
+      .grid.gap-6 {
+        gap: 0.75rem !important;
+      }
+
+      .grid.gap-8 {
+        gap: 1rem !important;
+      }
+
+      /* Education and project cards */
+      .rounded-3xl {
+        border-radius: 1rem !important;
+      }
+
+      /* Contact info cards */
+      .text-3xl {
+        font-size: 1.5rem !important;
+      }
+
+      /* Social links smaller */
+      .w-12.h-12 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+      }
+    }
+
     /* Mobile menu styles */
     .hamburger {
       display: none;
     }
-    
+
     @media (max-width: 768px) {
       .hamburger {
         display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 60;
+        position: relative;
+        padding: 8px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
       }
-      
+
+      .hamburger:hover {
+        background: rgba(99, 102, 241, 0.1);
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: currentColor;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+
+      /* Mobile navigation menu - Fixed for all 6 items */
       .nav-links {
-        display: none;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transform: translateX(100%) !important;
+        transition: transform 0.3s ease-in-out !important;
+        z-index: 55 !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        overflow-y: auto !important;
+        padding: 20px 0 !important;
       }
-      
+
+      .dark .nav-links {
+        background: rgba(17, 24, 39, 0.98) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
       .nav-links.active {
-        display: flex;
+        transform: translateX(0) !important;
       }
+
+      /* Ensure all navigation items are visible */
+      .nav-links li {
+        display: block !important;
+        width: 100% !important;
+        max-width: 250px !important;
+        margin: 6px 0 !important;
+      }
+
+      /* Hide desktop navigation on mobile */
+      .hidden.md\\:flex {
+        display: none !important;
+      }
+
+      /* Mobile navigation links styling - Enhanced visibility */
+      .mobile-nav-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        padding: 16px 24px !important;
+        margin: 0 !important;
+        border-radius: 16px !important;
+        font-size: 1.25rem !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 2px solid rgba(99, 102, 241, 0.3) !important;
+        backdrop-filter: blur(10px) !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .dark .mobile-nav-link {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(139, 92, 246, 0.4) !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+      }
+
+      .mobile-nav-link:hover {
+        background: rgba(99, 102, 241, 0.25) !important;
+        border-color: rgba(99, 102, 241, 0.7) !important;
+        color: #6366f1 !important;
+        transform: scale(1.03) !important;
+        box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2) !important;
+      }
+
+      .mobile-nav-link.active {
+        background: rgba(99, 102, 241, 0.3) !important;
+        border-color: rgba(99, 102, 241, 0.9) !important;
+        color: #6366f1 !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4) !important;
+      }
+
+      .mobile-nav-link i {
+        margin-right: 16px !important;
+        font-size: 1.25rem !important;
+        color: #6366f1 !important;
+        min-width: 24px !important;
+        text-align: center !important;
+      }
+
     }
   </style>
 </head>
@@ -262,24 +576,47 @@
         </ul>
 
         <!-- Mobile Hamburger -->
-        <div class="hamburger flex-col cursor-pointer md:hidden" id="hamburger">
-          <span class="block h-0.5 w-6 bg-gray-700 dark:bg-gray-300 my-1 rounded-sm transition-all duration-300"></span>
-          <span class="block h-0.5 w-6 bg-gray-700 dark:bg-gray-300 my-1 rounded-sm transition-all duration-300"></span>
-          <span class="block h-0.5 w-6 bg-gray-700 dark:bg-gray-300 my-1 rounded-sm transition-all duration-300"></span>
-        </div>
+        <button class="hamburger md:hidden" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
       <!-- Mobile Navigation -->
-      <ul class="nav-links md:hidden mt-4 space-y-2 glass-effect rounded-lg p-4" id="nav-links">
-        <li><a href="#header" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">Home</a></li>
-        <li><a href="#about" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">About</a></li>
-        <li><a href="#skills" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">Skills</a></li>
-        <li><a href="#education" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">Education</a></li>
-        <li><a href="#projects" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">Projects</a></li>
-        <li><a href="#contact" class="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-accent-primary hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all duration-300">Contact</a></li>
+      <!-- Mobile Navigation Menu -->
+      <ul class="nav-links fixed top-0 left-0 w-full h-full bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl
+                 flex flex-col justify-center items-center space-y-6 transform translate-x-full
+                 transition-transform duration-300 ease-in-out z-50" id="nav-links">
+        <li><a href="#header" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                   transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                   flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-home mr-3 text-accent-primary text-lg"></i>Home</a></li>
+        <li><a href="#about" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                  transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                  flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-user mr-3 text-accent-primary text-lg"></i>About</a></li>
+        <li><a href="#skills" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                   transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                   flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-cogs mr-3 text-accent-primary text-lg"></i>Skills</a></li>
+        <li><a href="#education" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                      transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                      flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-graduation-cap mr-3 text-accent-primary text-lg"></i>Education</a></li>
+        <li><a href="#projects" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                     transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                     flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-laptop-code mr-3 text-accent-primary text-lg"></i>Projects</a></li>
+        <li><a href="#contact" class="mobile-nav-link text-xl font-semibold text-gray-900 dark:text-white hover:text-accent-primary
+                                    transition-all duration-300 hover:scale-105 relative px-6 py-3 rounded-xl
+                                    flex items-center justify-start min-w-[180px]">
+          <i class="fas fa-envelope mr-3 text-accent-primary text-lg"></i>Contact</a></li>
       </ul>
     </div>
   </nav>
+
+  
 
   <!-- Modern Hero Section -->
   <header class="min-h-screen hero-gradient relative overflow-hidden pt-20" id="header">
@@ -291,12 +628,12 @@
 
     <!-- Theme Toggle Button -->
     <button id="toggle-theme" aria-label="Toggle Light/Dark Mode"
-            class="fixed top-5 right-5 z-50 glass-effect px-4 py-2 rounded-full font-medium cursor-pointer
-                   shadow-glow hover:shadow-glow-lg transition-all duration-300 text-sm
-                   text-gray-700 dark:text-gray-300 hover:text-accent-primary">
-      <i class="fas fa-sun dark:hidden"></i>
-      <i class="fas fa-moon hidden dark:inline"></i>
-      <span class="ml-2">Theme</span>
+            class="fixed bottom-6 right-6 z-50 glass-effect w-14 h-14 rounded-full font-medium cursor-pointer
+                   shadow-glow hover:shadow-glow-lg transition-all duration-300 text-xl
+                   text-gray-700 dark:text-gray-300 hover:text-accent-primary
+                   flex items-center justify-center hover:scale-110">
+      <i class="fas fa-sun dark:hidden transition-transform duration-300"></i>
+      <i class="fas fa-moon hidden dark:inline transition-transform duration-300"></i>
     </button>
 
     <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
@@ -310,25 +647,25 @@
 
       <!-- Hero Text -->
       <div class="max-w-4xl mx-auto animate-fade-slide-in">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+        <h1 class="text-2xl md:text-6xl lg:text-7xl font-bold mb-2 md:mb-6 text-white leading-tight">
           Hey, I'm <span class="text-gradient bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Arijit Dey</span> 👋
         </h1>
 
-        <p class="text-xl md:text-2xl lg:text-3xl font-medium mb-8 text-white/90">
-          <i class="fas fa-code mr-3 text-accent-primary"></i>
+        <p class="text-base md:text-2xl lg:text-3xl font-medium mb-4 md:mb-8 text-white/90">
+          <i class="fas fa-code mr-2 text-accent-primary"></i>
           <span class="text-gradient bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Software Developer & Cloud Enthusiast
           </span>
         </p>
 
-        <div class="glass-effect px-6 py-4 rounded-2xl inline-block mb-8">
-          <code class="text-lg font-mono text-white/90">
+        <div class="glass-effect px-4 py-2 md:px-6 md:py-4 rounded-2xl inline-block mb-4 md:mb-8">
+          <code class="text-sm md:text-lg font-mono text-white/90">
             Turning ideas into code, one line at a time.
           </code>
         </div>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div class="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center items-center">
           <a href="#about" class="glass-effect px-8 py-4 rounded-full text-white font-semibold
                                  shadow-glow hover:shadow-glow-lg transition-all duration-300
                                  hover:-translate-y-1 inline-flex items-center gap-2">
@@ -362,8 +699,8 @@
   <section id="about" class="py-20 bg-gray-50 dark:bg-dark-surface">
     <div class="max-w-7xl mx-auto px-6">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
           <span class="text-gradient">About Me</span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-accent-primary to-accent-secondary mx-auto rounded-full"></div>
@@ -380,22 +717,23 @@
           </div>
         </div>
 
-        <!-- Content Section -->
+       <!-- Content Section -->
         <div class="space-y-6">
           <div class="glass-effect rounded-2xl p-8 floating-card">
             <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
               <i class="fas fa-user text-accent-primary mr-3"></i>
               Who I Am
             </h3>
-            <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-6 ">
-              I'm a motivated <span class="text-accent-primary font-semibold">Cloud Computing enthusiast</span> and completed my degree in Computer Science engineering with
-              specialization in cloud technologies. I have a strong foundation in programming languages like <span class="text-accent-secondary font-semibold">Java and Python</span>,
-              complemented knowledge in building scalable, cloud-native solutions using <span class="text-accent-primary font-semibold">Microsoft Azure & AWS</span>.
-            </p>
-            <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
-              I'm also passionate about <span class="text-accent-secondary font-semibold">Artificial Intelligence and Machine Learning</span>, applying these technologies to
-              real-world problems like image stitching, sentiment analysis, and intelligent data processing.
-            </p>
+            <!-- Enhanced mobile-optimized paragraphs -->
+            <div class="space-y-4 md:space-y-6">
+              <p class="text-sm md:text-lg leading-6 md:leading-8 text-gray-600 dark:text-gray-300 text-left md:text-justify">
+                I'm a motivated <span class="text-accent-primary font-semibold">Cloud Computing enthusiast</span> and completed my degree in Computer Science engineering with specialization in cloud technologies. I have a strong foundation in programming languages like <span class="text-accent-secondary font-semibold">Java and Python</span>, complemented knowledge in building scalable, cloud-native solutions using <span class="text-accent-primary font-semibold">Microsoft Azure & AWS</span>.
+              </p>
+
+              <p class="text-sm md:text-lg leading-6 md:leading-8 text-gray-600 dark:text-gray-300 text-left md:text-justify">
+                I'm also passionate about <span class="text-accent-secondary font-semibold">Artificial Intelligence and Machine Learning</span>, applying these technologies to real-world problems like image stitching, sentiment analysis, and intelligent data processing.
+              </p>
+            </div>
 
             <!-- Resume Download Button -->
             <div class="text-center">
@@ -454,12 +792,12 @@
   <section id="skills" class="py-20 bg-white dark:bg-dark-bg">
     <div class="max-w-7xl mx-auto px-6">
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
           <span class="text-gradient">Skills & Technologies</span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-accent-primary to-accent-secondary mx-auto rounded-full"></div>
-        <p class="text-gray-600 dark:text-gray-300 mt-4 text-lg">Technologies I work with</p>
+        <p class="text-gray-600 dark:text-gray-300 mt-4 text-base md:text-lg">Technologies I work with</p>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -519,8 +857,8 @@
         </div>
 
         <div class="skill-gradient p-6 rounded-2xl text-center floating-card group">
-          <i class="fab fa-aws text-4xl text-accent-primary mb-4 group-hover:scale-110 transition-transform duration-300"></i>
-          <h3 class="font-semibold text-gray-800 dark:text-white">AWS</h3>
+          <i class="fab fa-figma text-4xl text-accent-primary mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+          <h3 class="font-semibold text-gray-800 dark:text-white">Figma</h3>
         </div>
       </div>
     </div>
@@ -607,7 +945,7 @@
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-6 text-center">
               <h3 class="text-xl font-bold text-white mb-3">Image Stitching using Seam Carving</h3>
-              <p class="text-white/90 text-sm mb-4">Combining seam carving with image stitching techniques to build accurate panoramic views with minimal distortion.</p>
+              <p class="text-white/90 text-sm mb-4 text-justify">Combining seam carving with image stitching techniques to build accurate panoramic views with minimal distortion.</p>
               <a href="https://github.com/Arijitag7/Image-Stitching-using-Seam-Carving-.git" target="_blank"
                  class="button-gradient px-6 py-2 rounded-full text-white font-semibold hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
                 <i class="fab fa-github"></i>
@@ -628,7 +966,7 @@
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-6 text-center">
               <h3 class="text-xl font-bold text-white mb-3">Criativo - Project Ideas Website</h3>
-              <p class="text-white/90 text-sm mb-4">A web platform for students to discover and contribute academic project ideas. Built with modern web technologies.</p>
+              <p class="text-white/90 text-sm mb-4 text-justify">A web platform for students to discover and contribute academic project ideas. Built with modern web technologies.</p>
               <a href="https://github.com/Arijitag7/Criativo---A-Website-for-Project-Ideas.git" target="_blank"
                  class="button-gradient px-6 py-2 rounded-full text-white font-semibold hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
                 <i class="fab fa-github"></i>
@@ -649,7 +987,7 @@
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-6 text-center">
               <h3 class="text-xl font-bold text-white mb-3">Customer Review Sentiment Analysis</h3>
-              <p class="text-white/90 text-sm mb-4">Used Azure Cognitive Services to extract sentiment insights from customer reviews to aid businesses in strategic decisions.</p>
+              <p class="text-white/90 text-sm mb-4 text-justify">Used Azure Cognitive Services to extract sentiment insights from customer reviews to aid businesses in strategic decisions.</p>
               <a href="https://github.com/Arijitag7/Customer-Review-Sentimental-Analysis-using-Azure-Cognitive-Services.git" target="_blank"
                  class="button-gradient px-6 py-2 rounded-full text-white font-semibold hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
                 <i class="fab fa-github"></i>
@@ -670,7 +1008,7 @@
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-6 text-center">
               <h3 class="text-xl font-bold text-white mb-3">Electricity Billing System</h3>
-              <p class="text-white/90 text-sm mb-4">A Java application to automate electricity bill generation and manage user records efficiently through a simple interface.</p>
+              <p class="text-white/90 text-sm mb-4 text-justify">A Java application to automate electricity bill generation and manage user records efficiently through a simple interface.</p>
               <a href="https://github.com/Arijitag7/Electricity-Billing-System.git" target="_blank"
                  class="button-gradient px-6 py-2 rounded-full text-white font-semibold hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
                 <i class="fab fa-github"></i>
@@ -691,8 +1029,8 @@
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center p-6 text-center">
               <h3 class="text-xl font-bold text-white mb-3">Personal Portfolio Website</h3>
-              <p class="text-white/90 text-sm mb-4">A responsive portfolio website built using HTML and CSS. It showcases all my skills, projects, and contact information.</p>
-              <a href="https://github.com/Arijitag7/Portfolio-website.git" target="_blank"
+              <p class="text-white/90 text-sm mb-4 text-justify">A responsive portfolio website built using HTML and CSS. It showcases all my skills, projects, and contact information.</p>
+              <a href="https://github.com/Arijitag7/new-portfolio.git" target="_blank"
                  class="button-gradient px-6 py-2 rounded-full text-white font-semibold hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
                 <i class="fab fa-github"></i>
                 View Code
@@ -861,6 +1199,18 @@
                     transition-all duration-300 hover:scale-110">
             <i class="fab fa-linkedin text-xl"></i>
           </a>
+          <a href="https://www.instagram.com/.ari.jit./" target="_blank"
+             class="w-12 h-12 bg-gray-100 dark:bg-dark-card rounded-full flex items-center justify-center
+                    text-gray-600 dark:text-gray-300 hover:text-accent-primary hover:bg-accent-primary/10
+                    transition-all duration-300 hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+            </a>  
+            <a href="https://www.facebook.com/arijit.dey.7374480" target="_blank"
+             class="w-12 h-12 bg-gray-100 dark:bg-dark-card rounded-full flex items-center justify-center
+                    text-gray-600 dark:text-gray-300 hover:text-accent-primary hover:bg-accent-primary/10
+                    transition-all duration-300 hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+            </a>
           <a href="mailto:deyarijitag7@gmail.com"
              class="w-12 h-12 bg-gray-100 dark:bg-dark-card rounded-full flex items-center justify-center
                     text-gray-600 dark:text-gray-300 hover:text-accent-primary hover:bg-accent-primary/10
@@ -871,7 +1221,7 @@
 
         <div class="border-t border-gray-200 dark:border-gray-700 pt-8">
           <p class="text-gray-500 dark:text-gray-400">
-            &copy; 2025 Arijit Dey. All rights reserved. Built with ❤️ and modern web technologies.
+            &copy; 2025 Arijit Dey. All rights reserved. Built with ❤ and modern web technologies.
           </p>
         </div>
       </div>
@@ -880,12 +1230,30 @@
 
   <!-- JavaScript -->
   <script>
-    // Hamburger menu functionality
+    // Enhanced hamburger menu functionality
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("nav-links");
 
     hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
       navLinks.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileNavLinks = navLinks.querySelectorAll("a");
+    mobileNavLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      }
     });
 
     // Dark mode toggle functionality
@@ -1046,7 +1414,71 @@
         nav.classList.remove('backdrop-blur-lg');
       }
     });
-  </script>
 
+    // Enhanced active section highlighting on scroll
+    function updateActiveNavigation() {
+      const sections = [
+        { id: 'header', element: document.querySelector('#header, header') },
+        { id: 'about', element: document.querySelector('#about') },
+        { id: 'skills', element: document.querySelector('#skills') },
+        { id: 'education', element: document.querySelector('#education') },
+        { id: 'projects', element: document.querySelector('#projects') },
+        { id: 'contact', element: document.querySelector('#contact') }
+      ];
+
+      const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+      const scrollPosition = window.scrollY + 100;
+
+      let currentSection = 'header'; // Default to header
+
+      // Special handling for header (top of page)
+      if (window.scrollY < 300) {
+        currentSection = 'header';
+      } else {
+        // Check each section (skip header since we handled it above)
+        sections.slice(1).forEach(section => {
+          if (section.element) {
+            const sectionTop = section.element.offsetTop;
+            const sectionHeight = section.element.offsetHeight;
+
+            // If we're in this section's range
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              currentSection = section.id;
+            }
+          }
+        });
+      }
+
+      // Update navigation links
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+
+        if (href === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+
+      // Debug: Log current section (remove in production)
+      console.log(`Active section: ${currentSection}, Scroll: ${Math.round(window.scrollY)}`);
+    }
+
+    // Throttled scroll event for better performance
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+
+      scrollTimeout = setTimeout(() => {
+        updateActiveNavigation();
+      }, 10);
+    });
+
+    // Initialize active navigation on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateActiveNavigation();
+    });
+  </script>
 </body>
 </html>
